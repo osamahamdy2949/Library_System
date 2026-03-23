@@ -11,8 +11,4 @@
     <ProjectReference Include="..\ConsoleTheme\ConsoleTheme.csproj" />
   </ItemGroup>
 
-  <ItemGroup>
-    <Folder Include="Extentions\" />
-  </ItemGroup>
-
 </Project>

@@ -52,7 +52,7 @@ namespace Library_System.Models
             string fineLine = fine > 0 ? $"{fine:F2} EGP" : "None";
 
             return $@"── Transaction #{TransactionId} ──────────────
-Book      : {BookCopy.Copy.Title}
+Book      : {BookCopy.Book.Title}
 Copy ID   : {BookCopy.CopyId}
 Borrowed  : {BorrowDate.ToString(DateFormat)}
 Due       : {DueDate.ToString(DateFormat)}

@@ -10,20 +10,20 @@ namespace Library_System.Models
     public class Librarian : LibraryUser
     {
 
-        public string LibrarianID { get; private set; } = null!;
+        public string LibrarianId { get; private set; } = null!;
         public decimal Salary { get; private set; }
         public DateOnly HireDate { get; private set; }
 
-        public Librarian(string librarianID, string name, string phone, decimal salary, DateOnly hiredate) : base (name , phone)
+        public Librarian(string librarianId, string name, string phone, decimal salary, DateOnly hireDate) : base(name, phone)
         {
-            LibrarianID = librarianID;
+            LibrarianId = librarianId;
             Salary = salary;
-            HireDate = hiredate;
+            HireDate = hireDate;
         }
 
         public override string ToDisplayString()
         {
-            return $@"ID      : {LibrarianID}
+            return $@"ID      : {LibrarianId}
 Name    : {Name}
 Phone   : {Phone}
 Salary  : {Salary:C}

@@ -12,8 +12,6 @@ namespace Library_System.Models
     public class Member : LibraryUser , IDisplaiable
     {
         private static int _counter = 1;
-        private List<BorrowTransaction> _transaction;
-
 
         public string MembershipId { get; private set; }
         public string? Email { get; private set; }
@@ -23,7 +21,7 @@ namespace Library_System.Models
         private readonly List<BorrowTransaction> _transactions = new();
         public IReadOnlyList<BorrowTransaction> Transactions => _transactions;
 
-        public Member(string name, string? email, DateOnly? dob , string phone, DateOnly memberShipDate) : base(name , phone)
+        public Member(string name, DateOnly? dob, string? email , string phone, DateOnly memberShipDate) : base(name , phone)
         {
             MembershipId = $"MEM-{_counter++:D3}";
             Email = email;

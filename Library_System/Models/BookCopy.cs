@@ -1,4 +1,5 @@
-﻿using Library_System.Models.Enums;
+﻿using Library_System.Contracts.Interfaces;
+using Library_System.Models.Enums;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel.Design;
@@ -8,20 +9,19 @@ using System.Threading.Tasks;
 
 namespace Library_System.Models
 {
-    public class BookCopy
+    public class BookCopy : IDisplaiable , IBorrowable
     {
 
         public string CopyId { get; private set; }
         public string Condition { get; private set; }
         public CopyStatus Status { get; private set; }
-        public Book Copy { get; private set; }
+        public Book Book { get; private set; }
         public BorrowTransaction? ActiveTransaction { get; private set; }
-
         public BookCopy(string copyId, Book copy, string condition = "Good")
         {
             CopyId = copyId;
             Condition = condition ;
-            Copy = copy;
+            Book = copy;
             Status = CopyStatus.Available;
         }
 
@@ -51,6 +51,12 @@ namespace Library_System.Models
             ActiveTransaction = null;
 
             return fine;
+        }
+
+        public string ToDisplayString()
+        {
+            string avail = IsAvailable() ? "Available" : $"{Status}";
+            return $"Copy [{CopyId}] — {Book.Title} | Condition: {Condition} | {avail}";
         }
     }
 }
